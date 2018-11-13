@@ -16,16 +16,17 @@
         font-family: Arial, Helvetica, sans-serif, 'Didact Gothic';
         margin: 0;
     }
-    /* .head {
+    .head {
         text-align: center;
         height: 150px;
-        background-color: #1abc9c;
-        color: white;
-        padding: 80px;
+        background-color: #32a98f;
+        color: black;
+        padding: 20px;
+        width: 100%;
     }
     .head h1 { 
         font-size: 40px; 
-    } */
+    }
     .avatar {
         border-radius: 50%;
         width: 150px;
@@ -100,17 +101,19 @@
     .row {
         display: flex;
         flex-wrap: wrap;
+        margin: 50px;
     }
     .side {
-        flex: 30%;
+        flex: 20%;
         background-color: #f1f1f1;
-        padding: 50px 0px 0px 20px;
+        padding: 20px 0px 0px 20px;
     }
-    
+    .col-1 {flex: 10%}
+    .col-4 {flex: 10%}
     .main {
-        flex: 70%;
+        flex: 60%;
         background-color: white;
-        padding: 50px 0px 0px 20px;
+        padding: 0px 50px 0px 20px;
     }
     /* .main h1 {
         margin: 130px 0px 0px 20px;
@@ -129,13 +132,42 @@
             width: 100%;
         }
     }
+    .tab {
+        overflow: hidden;
+        border: 1px solid #e5f5f2;
+        background-color: #1abc9c;
+        
+    }
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+        color: white;
+    }
+    .tab button:hover {
+        background-color:  #117964;
+    }
+    .tab button.active {
+        background-color: #117964 ;
+    }   
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
 </style>
 </head>
 <body>
-    <!-- <div class="head">
-        <h1>My Website</h1>
-        <p>A website created by me</p>
-    </div> -->
+    <div class="head">
+        <h1>Welcome to Kay Website</h1>
+        <p>A website introduce myself to everyone</p>
+    </div>
     <!-- <div class="navbar">
         <ul>
             <li><a>Link 1</a></li>
@@ -146,6 +178,7 @@
     </div> -->
 
     <div class="row">
+        <div class="col-1"></div>
         <div class="side">
             <div class="logoPre">
                 <div class="imgPre">
@@ -173,16 +206,74 @@
         </div>
 
         <div class="main">
-            <div class="nav">
+            <!-- <div class="nav">
                 <ul>
                     <li><a>Skills</a></li>
                     <li><a>Experience</a></li>
                     <li><a>Language</a></li>
                     <li><a>Education</a></li>
                 </ul>
+            </div> -->
+
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'Skills')" id="defaultOpen">Skills</button>
+                <button class="tablinks" onclick="openCity(event, 'Language')">Language</button>
+                <button class="tablinks" onclick="openCity(event, 'Experience')">Experience</button>    
+                <button class="tablinks" onclick="openCity(event, 'Education')">Education</button>
             </div>
 
-            <div class="content">
+            <div id="Skills" class="tabcontent">
+                <h3>Web markup</h3>
+                <p class="fab fa-html5" style="color: #f2bd7b">HTML5</p>
+                <p class="fab fa-css3" style="color: #94cb71">CSS3</p>
+                <h3>CSS Framework</h3>
+                <p style="color: #371c7a">Bootstrap</p>
+                <h3>Javascript framework: </h3>
+                <p class="fab fa-react" style="color: blue">ReactJs</p>
+                <h3>Package management tools:</h3>
+                <p class="fab fa-npm" style="color: #9092f4">NPM</p>
+                <h3>Server-side CSS pre-processing platforms:</h3>
+                <p class="fab fa-sass" style="color: #f490cd">SASS/SCSS</p>
+            </div>
+            <div id="Language" class="tabcontent">
+                <h3>Good</h3>
+                <p>can communicate in work environment</p>
+            </div>
+            <div id="Experience" class="tabcontent">
+                    <h3>Wanek furniture company, Vsip2 – IT System Support Technician</h3>
+                    <p>2016 - now</p>
+                    <blockquote>
+                            Programming the local web wanek.com of company using HTML/CSS, Bootstrap, Javascript ,C#, Entity Framework, SQL Server 
+                            Support all users through IT service desk system
+                            Manage The Systems Integration Manufacturing (Mapic, GP8000, AS400)
+                            Manage changes to the Project
+                            Provide user training for all IT project                    
+                    </blockquote>
+            </div>
+            <div id="Education" class="tabcontent">
+                <h3>Bachelor of Applies Mathematics</h3>
+                <p>Ton Duc Thang University</p>
+            </div>
+            <div class="col-4"></div>
+            <script>
+                    function openCity(evt, cityName) {
+                        var i, tabcontent, tablinks;
+                        tabcontent = document.getElementsByClassName("tabcontent");
+                        for (i = 0; i < tabcontent.length; i++) {
+                            tabcontent[i].style.display = "none";
+                        }
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = tablinks[i].className.replace(" active", "");
+                        }
+                        document.getElementById(cityName).style.display = "block";
+                        evt.currentTarget.className += " active";
+                    }
+                    
+                    // Get the element with id="defaultOpen" and click on it
+                    document.getElementById("defaultOpen").click();
+            </script>
+            <!-- <div class="content">
                 <h1>SKILLS</h1>
                 <h5>Web markup</h5>
                 <p class="fab fa-html5" style="color: #f2bd7b">HTML5</p>
@@ -211,7 +302,7 @@
                 </blockquote>
                 <h1>EDUCATION</h1>
                 <p>Bachelor of Applies Mathematics</p>
-            </div>
+            </div> -->
             
         </div>
     </div>
